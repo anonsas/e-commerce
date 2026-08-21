@@ -1,0 +1,54 @@
+# Dependencies
+**/node_modules
+**/.pnp
+**/.pnp.js
+
+# Build outputs
+backend/dist
+web/dist
+web/.vite
+**/*.tsbuildinfo
+
+# Environment — never bake secrets into the image
+**/.env
+**/.env.*
+!**/.env.example
+
+# Version control
+.git
+.gitignore
+
+# Logs & diagnostics
+**/*.log
+**/logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+**/*.suo
+**/*.swp
+
+# Test & coverage
+**/coverage
+**/.nyc_output
+**/test-results
+**/playwright-report
+
+# Drizzle generated migrations (not needed at runtime)
+backend/drizzle
+
+# Docker files themselves
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Temporary
+**/tmp
+**/temp

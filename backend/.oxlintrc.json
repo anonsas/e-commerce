@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
+  "plugins": ["import"],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "import/no-cycle": "error",
+    "import/no-duplicates": "error",
+    "import/no-self-import": "error",
+    "no-unused-vars": "warn"
+  },
+  "settings": {
+    "import": {
+      "resolver": {
+        "typescript": {
+          "project": "./tsconfig.json"
+        }
+      }
+    }
+  }
+}

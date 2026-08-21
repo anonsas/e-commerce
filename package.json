@@ -1,0 +1,10 @@
+{
+  "workspaces": ["backend", "web", "shared"],
+  "scripts": {
+    "format": "oxfmt .",
+    "format:check": "oxfmt . --check"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.62.0"
+  }
+}
