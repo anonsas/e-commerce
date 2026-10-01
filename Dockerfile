@@ -12,6 +12,9 @@ ENV VITE_API_URL=
 # Public Clerk key (safe to pass as build-arg; it is embedded in client JS anyway)
 ARG VITE_CLERK_PUBLISHABLE_KEY
 ENV VITE_CLERK_PUBLISHABLE_KEY=$VITE_CLERK_PUBLISHABLE_KEY
+# Public GA measurement ID (embedded in client JS). Empty = analytics disabled.
+ARG VITE_GA_MEASUREMENT_ID
+ENV VITE_GA_MEASUREMENT_ID=$VITE_GA_MEASUREMENT_ID
 RUN npm install --no-audit --no-fund \
   && npm run build --workspace=web
 
