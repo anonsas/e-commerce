@@ -5,6 +5,6 @@
     "format:check": "oxfmt . --check"
   },
   "devDependencies": {
-    "oxfmt": "^0.62.0"
+    "oxfmt": "^0.71.0"
   }
 }

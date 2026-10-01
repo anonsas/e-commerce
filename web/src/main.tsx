@@ -35,7 +35,6 @@ Sentry.init({
   replaysSessionSampleRate: 1.0, // in prod 0.1-0.5
   replaysOnErrorSampleRate: 1.0, // in prod 0.1-0.5
   tracePropagationTargets: tracePropagationTargets,
-  enableLogs: true,
   dataCollection: {
     // userInfo is the only field off by default; all others (cookies, headers, bodies, query params) default to true.
     userInfo: true,

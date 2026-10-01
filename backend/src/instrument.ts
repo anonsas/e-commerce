@@ -10,7 +10,6 @@ if (env.SENTRY_DSN) {
     dsn: env.SENTRY_DSN,
     environment: process.env.NODE_ENV ?? "development",
     integrations: [nodeProfilingIntegration()],
-    enableLogs: true,
     tracesSampleRate: 1.0,
     profileSessionSampleRate: 1.0,
     profileLifecycle: "trace",
