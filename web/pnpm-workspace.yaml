@@ -1,0 +1,3 @@
+allowBuilds:
+  stream-chat: set this to true or false
+  stream-chat-react: set this to true or false
