@@ -6,7 +6,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import "./index.css";
 import { App } from "./App";
 import { BrowserRouter } from "react-router";
-import { SentryErrorFallback, SentryUserSync } from "@components";
+import { AnalyticsTracker, SentryErrorFallback, SentryUserSync } from "@components";
 
 // Restore saved theme before first render to avoid a flash of the wrong theme.
 const savedTheme = localStorage.getItem("theme");
@@ -47,6 +47,7 @@ createRoot(document.getElementById("root")!).render(
       <SentryUserSync />
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          <AnalyticsTracker />
           <Sentry.ErrorBoundary fallback={<SentryErrorFallback />}>
             <App />
           </Sentry.ErrorBoundary>
