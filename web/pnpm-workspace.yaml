@@ -1,3 +1,15 @@
 allowBuilds:
   stream-chat: set this to true or false
   stream-chat-react: set this to true or false
+minimumReleaseAgeExclude:
+  - '@sentry/browser-utils@11.2.0'
+  - '@sentry/browser@11.2.0'
+  - '@sentry/core@11.2.0'
+  - '@sentry/feedback@11.2.0'
+  - '@sentry/react@11.2.0'
+  - '@sentry/replay-canvas@11.2.0'
+  - '@sentry/replay@11.2.0'
+  - '@stream-io/video-client@1.61.1'
+  - '@stream-io/video-react-bindings@1.20.5'
+  - '@stream-io/video-react-sdk@1.43.3'
+  - vite@8.3.2
