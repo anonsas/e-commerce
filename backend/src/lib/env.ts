@@ -17,6 +17,9 @@ const envSchema = z
     POLAR_API_BASE: z.url().default("https://api.polar.sh"),
     POLAR_CHECKOUT_PRODUCT_ID: z.uuid(),
 
+    // Clerk user id (user_...) of the shared demo account. Unset = demo login disabled.
+    DEMO_USER_ID: z.string().min(1).optional(),
+
     SENTRY_DSN: z.string().min(1),
 
     STREAM_API_KEY: z.string().min(1),

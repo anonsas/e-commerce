@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { useAuth } from "@clerk/react";
 import { useQuery } from "@tanstack/react-query";
 import { apiFetch } from "@lib";
@@ -70,9 +71,12 @@ export function useCart() {
         body: { items: savedItems },
       });
       // Redirect to Polar-hosted payment page.
+      toast.loading("Redirecting to secure payment…");
       window.location.href = checkoutUrl;
     } catch (err) {
-      setCheckoutError(err instanceof Error ? err.message : "Checkout failed. Please try again.");
+      const message = err instanceof Error ? err.message : "Checkout failed. Please try again.";
+      setCheckoutError(message);
+      toast.error(message);
     } finally {
       setIsCheckoutLoading(false);
     }

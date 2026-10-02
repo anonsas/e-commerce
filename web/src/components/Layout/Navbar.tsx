@@ -13,6 +13,7 @@ import { apiFetch } from "@lib";
 import { BRAND_NAME } from "@constants";
 import { useCartContext } from "@context";
 import { ThemeToggle } from "../ThemeToggle";
+import { DemoLoginButton } from "../DemoLoginButton";
 import { USER_ROLES } from "@ecommerce/shared";
 import type { MeResponse } from "@ecommerce/shared";
 
@@ -69,6 +70,7 @@ export function Navbar() {
 
           <Link
             to="/cart"
+            data-tour="cart"
             className="btn btn-ghost hidden gap-2 font-medium indicator sm:flex"
             aria-label={cartCount > 0 ? `Cart, ${cartCount} items` : "Cart"}
           >
@@ -82,12 +84,15 @@ export function Navbar() {
           </Link>
 
           <Show when="signed-out">
-            <SignInButton mode="modal">
-              <button type="button" className="btn btn-primary btn-sm gap-1.5 px-3 shadow-md">
-                <LogInIcon className="size-4 drop-shadow-sm" aria-hidden />
-                Sign in
-              </button>
-            </SignInButton>
+            <div data-tour="auth" className="flex items-center gap-1.5">
+              <DemoLoginButton className="btn btn-secondary btn-sm hidden gap-1.5 px-3 sm:inline-flex" />
+              <SignInButton mode="modal">
+                <button type="button" className="btn btn-primary btn-sm gap-1.5 px-3 shadow-md">
+                  <LogInIcon className="size-4 drop-shadow-sm" aria-hidden />
+                  Sign in
+                </button>
+              </SignInButton>
+            </div>
           </Show>
 
           <ThemeToggle />

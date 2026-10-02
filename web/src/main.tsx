@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import * as Sentry from "@sentry/react";
 import { ClerkProvider } from "@clerk/react";
 import { createRoot } from "react-dom/client";
+import { Toaster } from "sonner";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import "./index.css";
 import { App } from "./App";
@@ -48,6 +49,7 @@ createRoot(document.getElementById("root")!).render(
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <AnalyticsTracker />
+          <Toaster position="top-center" richColors closeButton />
           <Sentry.ErrorBoundary fallback={<SentryErrorFallback />}>
             <App />
           </Sentry.ErrorBoundary>

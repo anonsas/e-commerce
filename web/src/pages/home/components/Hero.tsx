@@ -1,5 +1,8 @@
 import { Link } from "react-router";
-import { ArrowRightIcon, SparklesIcon } from "lucide-react";
+import { Show } from "@clerk/react";
+import { ArrowRightIcon, CompassIcon, SparklesIcon } from "lucide-react";
+import { startTour } from "@lib";
+import { DemoLoginButton } from "@components";
 import type { CategoriesResponse } from "@ecommerce/shared";
 
 type Props = {
@@ -35,6 +38,15 @@ export function Hero({ isLoading, categories }: Props) {
             <Link to="/cart" className="btn btn-outline btn-primary">
               View cart
             </Link>
+
+            <Show when="signed-out">
+              <DemoLoginButton />
+            </Show>
+
+            <button type="button" onClick={startTour} className="btn btn-ghost gap-2">
+              <CompassIcon className="size-4" aria-hidden />
+              Take a tour
+            </button>
           </div>
         </div>
 
@@ -58,6 +70,10 @@ export function Hero({ isLoading, categories }: Props) {
               <SparklesIcon className="size-4 text-primary" aria-hidden />
               Secure checkout · Priority support on paid orders
             </div>
+            <p className="mt-2 text-xs text-base-content/60">
+              Demo store in payment sandbox. Pay with test card{" "}
+              <code className="font-mono">4242 4242 4242 4242</code>, any future expiry and CVC.
+            </p>
           </div>
         </div>
       </div>

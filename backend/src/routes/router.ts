@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   MeController,
+  DemoController,
   AdminController,
   OrderController,
   StreamController,
@@ -11,6 +12,7 @@ import { requireAuth, requireAdmin } from "@/middlewares/auth";
 
 export const router = Router();
 const meController = new MeController();
+const demoController = new DemoController();
 const adminController = new AdminController();
 const orderController = new OrderController();
 const streamController = new StreamController();
@@ -18,6 +20,9 @@ const productController = new ProductController();
 const checkoutController = new CheckoutController();
 
 router.get("/me", requireAuth, meController.getMe);
+
+router.get("/demo/status", demoController.getStatus);
+router.post("/demo/sign-in-token", demoController.createSignInToken);
 
 router.get("/products", productController.listProducts);
 router.get("/products/categories", productController.getCategories);

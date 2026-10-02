@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { Link } from "react-router";
 import { PlusIcon } from "lucide-react";
 import { IK_PRESETS, imageKitOptimizedUrl } from "@lib";
@@ -46,7 +47,11 @@ export function ProductCard({ product }: Props) {
           </span>
           <button
             type="button"
-            onClick={() => handleAddItem(product.id)}
+            onClick={() => {
+              handleAddItem(product.id);
+              toast.success(`${product.name} added to cart`);
+            }}
+            data-tour="add-to-cart"
             className="btn btn-primary btn-sm gap-1 shadow"
           >
             <PlusIcon className="size-4" aria-hidden />

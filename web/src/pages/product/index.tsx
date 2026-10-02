@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { Link, useParams } from "react-router";
 import { useProduct } from "./hooks/useProduct";
 import { useCartContext } from "@context";
@@ -103,7 +104,10 @@ export function ProductPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => handleAddItem(product.id)}
+              onClick={() => {
+                handleAddItem(product.id);
+                toast.success(`${product.name} added to cart`);
+              }}
               className="btn btn-primary btn-lg gap-2 shadow-lg"
             >
               <ShoppingCartIcon className="size-5" aria-hidden />
